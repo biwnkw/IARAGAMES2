@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="css/cadastro.css">
+</head>
+<body>
+  <header>
+    <div class="left-header">
+      <a href="../index.html" aria-label="Ir para página inicial" tabindex="0">
+        <button class="menu-btn">☰</button>
+      </a>
+      <h1 class="logo"><a href="../index.html" aria-label="Ir para a página inicial de Iara Games">Iara <span>Games</span></a></h1>
+    </div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#" tabindex="0">Início</a></li>
+        <li><a href="#" tabindex="0">Sobre</a></li>
+        <li><a href="#" tabindex="0">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="form-container">
+      <h2>Cadastro de Usuário</h2>
+      <form action="#" method="POST" id="form-cadastro">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required aria-label="Nome completo do usuário" tabindex="0">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required aria-label="Email do usuário" tabindex="0">
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required aria-label="Senha do usuário" tabindex="0">
+
+        <label for="confirmar">Confirmar Senha:</label>
+        <input type="password" id="confirmar" name="confirmar" required aria-label="Confirmar senha do usuário" tabindex="0">
+
+        <button type="submit" aria-label="Cadastrar novo usuário" tabindex="0">Cadastrar</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <h3>Sobre</h3>
+    <p>Iara Games é uma plataforma voltada ao público gamer, feita para todos.</p>
+  </footer>
+
+  <script>
+    document.querySelector('#form-cadastro').addEventListener('submit', function(event) {
+      const senha = document.getElementById('senha').value;
+      const confirmar = document.getElementById('confirmar').value;
+      if (senha !== confirmar) {
+        alert("As senhas não coincidem!");
+        event.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>

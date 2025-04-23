@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iara Games</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="left-header">
+            <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false" tabindex="0">☰</button>
+            <h1 class="logo"><span aria-label="Iara Games">Iara <span>Games</span></span></h1>
+        </div>
+        <nav class="main-nav" role="navigation">
+            <ul>
+                <li><a href="#inicio" role="link" aria-label="Ir para Início" tabindex="0">Início</a></li>
+                <li><a href="#meus-jogos" role="link" aria-label="Ir para Meus Jogos" tabindex="0">Meus Jogos</a></li>
+                <li><a href="#sobre" role="link" aria-label="Ir para Sobre" tabindex="0">Sobre</a></li>
+            </ul>
+        </nav>
+        <label for="search-bar" class="sr-only">Buscar jogos:</label>
+        <input type="text" id="search-bar" class="search-bar" placeholder="Buscar..." aria-label="Pesquisar jogos" role="search" tabindex="0">
+    </header>
+
+    <nav class="side-menu" role="navigation" aria-hidden="true">
+        <ul>
+            <li><a href="#inicio" role="link" aria-label="Ir para Início" tabindex="0">Início</a></li>
+            <li><a href="#destaques" role="link" aria-label="Ir para Destaques" tabindex="0">Destaques</a></li>
+            <li><a href="#configuracoes" role="link" aria-label="Ir para Configurações" tabindex="0">Configurações</a></li>
+            <li><a href="#minha-conta" role="link" aria-label="Ir para Minha Conta" tabindex="0">Minha Conta</a></li>
+            <li><a href="cadastro/cadastro.html" role="link" aria-label="Ir para Cadastro" tabindex="0">Cadastro</a></li>
+            <li><a href="#sobre-nos" role="link" aria-label="Ir para Sobre Nós" tabindex="0">Sobre Nós</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="game-list">
+            <a href="https://www.ea.com/pt-br/games/the-sims/the-sims-4" class="game-card" target="_blank" aria-label="Ir para The Sims 4" tabindex="0">
+                <img src="assets/images/TS4-game-art-16x9-update.jpg.avif" alt="Imagem do jogo The Sims 4 - arte do jogo" tabindex="0">
+                <p>The Sims 4</p>
+            </a>
+            <a href="https://www.rockstargames.com/gta-v" class="game-card" target="_blank" aria-label="Ir para GTA V" tabindex="0">
+                <img src="assets/images/Grand_Theft_Auto_V_capa.png" alt="Imagem do jogo GTA V - capa do jogo" tabindex="0">
+                <p>GTA V</p>
+            </a>
+            <a href="https://www.stardewvalley.net/" class="game-card" target="_blank" aria-label="Ir para Stardew Valley" tabindex="0">
+                <img src="assets/images/capsule_616x353.jpg" alt="Imagem do jogo Stardew Valley - arte do jogo" tabindex="0">
+                <p>Stardew Valley</p>
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <section id="sobre">
+            <h3>Sobre</h3>
+            <p>
+                Iara Games é uma plataforma divertida, feita para quem quer começar no mundo dos jogos e para quem já é experiente.<br>
+                Nossa interface foi desenvolvida para ser fácil de usar e acessível, garantindo que qualquer jogador possa aproveitar sem dificuldades.<br>
+                Venha se divertir na nossa plataforma!
+            </p>
+        </section>
+        <section id="contato">
+            <h3>Contato</h3>
+            <p>Email: suporte@iaragames.com</p>
+        </section>
+    </footer>
+
+    <script>
+        document.querySelector('.menu-btn').addEventListener('click', function() {
+            const sideMenu = document.querySelector('.side-menu');
+            const isExpanded = sideMenu.classList.toggle('open');
+            this.setAttribute('aria-expanded', isExpanded);
+        });
+    </script>
+</body>
+</html>
