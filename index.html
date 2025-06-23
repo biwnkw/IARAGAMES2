@@ -1,77 +1,161 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iara Games</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Iara Games</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Seu CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  
+  <style>
+    /* Garantir que o menu lateral começa escondido */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100vh;
+      background-color: #1d1d1f;
+      transition: left 0.3s ease-in-out;
+      z-index: 1020;
+      padding-top: 60px;
+    }
+
+    /* Classe para abrir o menu */
+    .side-menu.open {
+      left: 0;
+    }
+
+    /* Ajustar para que o header fique sempre em cima do menu lateral */
+    header {
+      z-index: 1030;
+    }
+
+    /* Estilo para o botão menu */
+    .menu-btn {
+      font-size: 28px;
+      border: none;
+      background: none;
+      color: #ff6a00;
+      cursor: pointer;
+    }
+
+    /* Ajustar logo */
+    .logo img {
+      height: 90px !important;
+      max-width: 180px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="left-header">
-            <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false" tabindex="0">☰</button>
-            <h1 class="logo"><span aria-label="Iara Games">Iara <span>Games</span></span></h1>
-        </div>
-        <nav class="main-nav" role="navigation">
-            <ul>
-                <li><a href="#inicio" role="link" aria-label="Ir para Início" tabindex="0">Início</a></li>
-                <li><a href="#meus-jogos" role="link" aria-label="Ir para Meus Jogos" tabindex="0">Meus Jogos</a></li>
-                <li><a href="#sobre" role="link" aria-label="Ir para Sobre" tabindex="0">Sobre</a></li>
-            </ul>
-        </nav>
-        <label for="search-bar" class="sr-only">Buscar jogos:</label>
-        <input type="text" id="search-bar" class="search-bar" placeholder="Buscar..." aria-label="Pesquisar jogos" role="search" tabindex="0">
-    </header>
+  <header class="d-flex align-items-center justify-content-between px-4 py-3 bg-dark fixed-top">
+    <div class="d-flex align-items-center">
+      <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false" tabindex="0">☰</button>
 
-    <nav class="side-menu" role="navigation" aria-hidden="true">
-        <ul>
-            <li><a href="#inicio" role="link" aria-label="Ir para Início" tabindex="0">Início</a></li>
-            <li><a href="#destaques" role="link" aria-label="Ir para Destaques" tabindex="0">Destaques</a></li>
-            <li><a href="#configuracoes" role="link" aria-label="Ir para Configurações" tabindex="0">Configurações</a></li>
-            <li><a href="#minha-conta" role="link" aria-label="Ir para Minha Conta" tabindex="0">Minha Conta</a></li>
-            <li><a href="cadastro/cadastro.html" role="link" aria-label="Ir para Cadastro" tabindex="0">Cadastro</a></li>
-            <li><a href="#sobre-nos" role="link" aria-label="Ir para Sobre Nós" tabindex="0">Sobre Nós</a></li>
-        </ul>
+      <a href="#" aria-label="Página inicial Iara Games" class="d-flex align-items-center ms-3 text-decoration-none logo">
+        <img src="assets/images/iaragameslogo.png" alt="Logotipo Iara Games" />
+      </a>
+    </div>
+
+    <nav class="main-nav d-none d-md-block" role="navigation">
+      <ul class="nav">
+        <li class="nav-item"><a href="#inicio" class="nav-link text-white" role="link" aria-label="Ir para Início" tabindex="0">Início</a></li>
+        <li class="nav-item"><a href="#meus-jogos" class="nav-link text-white" role="link" aria-label="Ir para Meus Jogos" tabindex="0">Meus Jogos</a></li>
+        <li class="nav-item"><a href="#sobre" class="nav-link text-white" role="link" aria-label="Ir para Sobre" tabindex="0">Sobre</a></li>
+      </ul>
     </nav>
 
-    <main>
-        <section class="game-list">
-            <a href="https://www.ea.com/pt-br/games/the-sims/the-sims-4" class="game-card" target="_blank" aria-label="Ir para The Sims 4" tabindex="0">
-                <img src="assets/images/TS4-game-art-16x9-update.jpg.avif" alt="Imagem do jogo The Sims 4 - arte do jogo" tabindex="0">
-                <p>The Sims 4</p>
-            </a>
-            <a href="https://www.rockstargames.com/gta-v" class="game-card" target="_blank" aria-label="Ir para GTA V" tabindex="0">
-                <img src="assets/images/Grand_Theft_Auto_V_capa.png" alt="Imagem do jogo GTA V - capa do jogo" tabindex="0">
-                <p>GTA V</p>
-            </a>
-            <a href="https://www.stardewvalley.net/" class="game-card" target="_blank" aria-label="Ir para Stardew Valley" tabindex="0">
-                <img src="assets/images/capsule_616x353.jpg" alt="Imagem do jogo Stardew Valley - arte do jogo" tabindex="0">
-                <p>Stardew Valley</p>
-            </a>
-        </section>
-    </main>
+    <label for="search-bar" class="visually-hidden">Buscar jogos:</label>
+    <input
+      type="text"
+      id="search-bar"
+      class="form-control form-control-sm w-auto"
+      placeholder="Buscar..."
+      aria-label="Pesquisar jogos"
+      role="search"
+      tabindex="0"
+    />
+  </header>
 
-    <footer>
-        <section id="sobre">
-            <h3>Sobre</h3>
-            <p>
-                Iara Games é uma plataforma divertida, feita para quem quer começar no mundo dos jogos e para quem já é experiente.<br>
-                Nossa interface foi desenvolvida para ser fácil de usar e acessível, garantindo que qualquer jogador possa aproveitar sem dificuldades.<br>
-                Venha se divertir na nossa plataforma!
-            </p>
-        </section>
-        <section id="contato">
-            <h3>Contato</h3>
-            <p>Email: suporte@iaragames.com</p>
-        </section>
-    </footer>
+  <nav class="side-menu" role="navigation" aria-hidden="true">
+    <ul class="list-unstyled ps-3">
+      <li class="mb-3"><a href="#inicio" class="text-white text-decoration-none" role="link" aria-label="Ir para Início" tabindex="0">Início</a></li>
+      <li class="mb-3"><a href="#destaques" class="text-white text-decoration-none" role="link" aria-label="Ir para Destaques" tabindex="0">Destaques</a></li>
+      <li class="mb-3"><a href="#configuracoes" class="text-white text-decoration-none" role="link" aria-label="Ir para Configurações" tabindex="0">Configurações</a></li>
+      <li class="mb-3"><a href="#minha-conta" class="text-white text-decoration-none" role="link" aria-label="Ir para Minha Conta" tabindex="0">Minha Conta</a></li>
+      <li class="mb-3"><a href="cadastro/cadastro.html" class="text-white text-decoration-none" role="link" aria-label="Ir para Cadastro" tabindex="0">Cadastro</a></li>
+      <li class="mb-3"><a href="#sobre-nos" class="text-white text-decoration-none" role="link" aria-label="Ir para Sobre Nós" tabindex="0">Sobre Nós</a></li>
+    </ul>
+  </nav>
 
-    <script>
-        document.querySelector('.menu-btn').addEventListener('click', function() {
-            const sideMenu = document.querySelector('.side-menu');
-            const isExpanded = sideMenu.classList.toggle('open');
-            this.setAttribute('aria-expanded', isExpanded);
-        });
-    </script>
+  <main class="container mt-5 pt-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card h-100 bg-dark text-white">
+          <img src="assets/images/TS4-game-art-16x9-update.jpg.avif" class="card-img-top" alt="Imagem do jogo The Sims 4" />
+          <div class="card-body">
+            <h5 class="card-title">The Sims 4</h5>
+            <a href="https://www.ea.com/pt-br/games/the-sims/the-sims-4" class="btn btn-warning" target="_blank" rel="noopener">Ver jogo</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 bg-dark text-white">
+          <img src="assets/images/Grand_Theft_Auto_V_capa.png" class="card-img-top" alt="Imagem do jogo GTA V" />
+          <div class="card-body">
+            <h5 class="card-title">GTA V</h5>
+            <a href="https://www.rockstargames.com/gta-v" class="btn btn-warning" target="_blank" rel="noopener">Ver jogo</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 bg-dark text-white">
+          <img src="assets/images/capsule_616x353.jpg" class="card-img-top" alt="Imagem do jogo Stardew Valley" />
+          <div class="card-body">
+            <h5 class="card-title">Stardew Valley</h5>
+            <a href="https://www.stardewvalley.net/" class="btn btn-warning" target="_blank" rel="noopener">Ver jogo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-white text-center mt-5 py-5" style="background-color: #000;">
+    <section id="sobre">
+      <h3 style="color: #ff6a00;">Sobre</h3>
+      <p>
+        Iara Games é uma plataforma divertida, feita para quem quer começar no mundo dos jogos e para quem já é experiente.<br />
+        Nossa interface foi desenvolvida para ser fácil de usar e acessível, garantindo que qualquer jogador possa aproveitar sem dificuldades.<br />
+        Venha se divertir na nossa plataforma!
+      </p>
+    </section>
+    <section id="contato" class="mt-4">
+      <h3 style="color: #ff6a00;">Contato</h3>
+      <p>Email: suporte@iaragames.com</p>
+    </section>
+  </footer>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    const sideMenu = document.querySelector('.side-menu');
+
+    // Inicializa menu fechado
+    sideMenu.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    sideMenu.style.left = '-250px';
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = sideMenu.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', isOpen);
+      sideMenu.style.left = isOpen ? '0' : '-250px';
+    });
+  </script>
+
+  <!-- Bootstrap JS (opcional) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
