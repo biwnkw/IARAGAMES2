@@ -1,0 +1,13 @@
+# Ignorar dependências e builds
+node_modules/
+consulta-cep/node_modules/
+build/
+dist/
+
+# Logs e cache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+.env
+
